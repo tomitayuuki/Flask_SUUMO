@@ -2,7 +2,7 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>家賃</title>
+        <title>うわっ…理想の賃貸、相場高すぎ…？</title>
     </head>
 
     <body>
@@ -12,7 +12,7 @@
         <p>現実に存在しない物件でも一応予測出来ます。</p>
         <br>
 
-        <form action="/index" method="POST">
+        <form action="/predict_result" method="POST">
             <p>最寄駅からの距離：<input type="number" name="distance_from_nearest_station" value=0 required>m</p>
             <p>築年数：<input type="number" name="age" value=0 required>年</p>
             <p>総階数：<input type="number" name="total_number_of_floors" value=1 required>階</p>
@@ -54,6 +54,7 @@
             </p>
             <input type="submit" value="相場を見る">
         </form>
-
+        <br>
+        <a href="/recommend">物件を探す</a>
     </body>
 </html>

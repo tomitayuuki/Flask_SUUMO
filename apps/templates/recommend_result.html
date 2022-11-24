@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>こちらはいかがでしょうか？</title>
+    </head>
+    <body>
+        <h1>こちらの物件はいかがでしょうか？</h1>
+
+        <h3>おススメの物件はこちらです。</h3>
+        <table>
+            <thead>
+                <tr>
+                    {% for column in recomm_rent.columns %}
+                    <th>{{ column }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for index,rent in recomm_rent.iterrows() %}
+                <tr>
+                    <td>{{rent['家賃']}}万円</td>
+                    <td>{{rent['区']}}</td>
+                    <td>{{rent['駅徒歩']}}分</td>
+                    <td>{{rent['間取り']}}</td>
+                    <td>{{rent['総階数']}}階</td>
+                    <td>{{rent['階']}}階</td>
+                    <td>{{rent['築年数']}}年</td>
+                    <td>{{rent['類似度']}}</td>
+                    <td><a href="{{rent['url']}}">SUUMOで見る</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h3>お探し物件の条件</h3>
+        <table>
+            <thead>
+                <tr>
+                    {% for column in ideal_rent.keys() %}
+                    <th>{{ column }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ideal_rent['家賃']}}万円</td>
+                    <td>{{ideal_rent['区']}}</td>
+                    <td>{{ideal_rent['駅徒歩']}}分</td>
+                    <td>{{ideal_rent['間取り']}}</td>
+                    <td>{{ideal_rent['総階数']}}階</td>
+                    <td>{{ideal_rent['階']}}階</td>
+                    <td>{{ideal_rent['築年数']}}年</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <a href="/recommend">もう一度</a><br>
+        <a href="/predict">物件相場を調べる</a>
+    </body>
+</html>
